@@ -291,7 +291,7 @@ class DBClientProxy {
 
                 db.get().collection(DBCollection.USER).find({ '_id': o_id }, opts).toArray()
                     .then((findResult) => {
-                        console.log('vbghbghgh');
+
                         if (findResult.length === 0) {
 
                             return Promise.reject('User ID does not exist');
@@ -308,7 +308,7 @@ class DBClientProxy {
                                 region = registerViewData.Address[address].State;
                             }
                         }
-                        console.log(region);
+
                       return db.get().collection(DBCollection.AGENT).find({"Availability" : "Y",
                           "Address": {$elemMatch:{"State": region}}}).sort({"Current_Orders": 1}).toArray();
                     })
@@ -389,13 +389,12 @@ class DBClientProxy {
                         return Promise.all(updateItemPromise);
                     })
                     .then(() => {
-                        console.log('xcxcxcxc');
 
                        return db.get().collection(DBCollection.AGENT).updateOne({"_id": new mongo
                                .ObjectID(agentResult._id)}, {$set: {"Current_Orders": Number(agentResult.Current_Orders)+1}});
                     })
                     .then(() => {
-                        console.log('in commit');
+
                         return session.commitTransaction();
                     })
                     .then(() => {
@@ -403,7 +402,6 @@ class DBClientProxy {
                         resolve(result);
                     })
                     .catch((error) => {
-                        console.log('cdc');
 
                         session.abortTransaction().then(() => {
                             session.endSession();
@@ -453,7 +451,7 @@ class DBClientProxy {
 
                 db.get().collection(DBCollection.ORDER).find({ '_id': o_id }).toArray()
                     .then((res) => {
-                        console.log('cdcdv' + res);
+
                         resolve(res);
                     })
                     .catch((error) => {

@@ -1,6 +1,6 @@
 # Online-Shop-Manager
 Online-Shop-Manager exposed the endpoint REST APIs to manage the online shopping. The project is written in **Node.js** using **Express framework** and 
-backhand database is **Mongodb**. However, there is to authentication and authorization support currently which should be managed by User as his\her requirement.   
+backhand database is **Mongodb**. However, there is no authentication and authorization support currently which should be managed by User as per his\her requirement.   
 
 
 ## Installation
