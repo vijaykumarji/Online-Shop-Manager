@@ -37,8 +37,8 @@ More detais: https://docs.mongodb.com/manual/reference/method/rs.initiate/
 
 Import the dummy data using studio 3T 
 1.	Connect to the mongodb server in Replica set mode.
-2.	Add new database **onlineshop**.
-3.	Import the data from **Dummy Data** folder to onlineshop database.
+2.	Add new database onlineshop.
+3.	Import the data from Dummy Data folder to onlineshop database.
 More details: https://studio3t.com/download/
 
 ```
@@ -46,17 +46,18 @@ More details: https://studio3t.com/download/
 #### Node and NPM setup:
 ```
 Download and install Node and NPM.
-More details: https://nodejs.org/en/
-	          https://www.npmjs.com/get-npm
+More details:
+https://nodejs.org/en/
+https://www.npmjs.com/get-npm
 
 ```
 
 #### Project setup:
 ```
 1.	Go to the project directory and run following command: 
-**npm install**
+    npm install
 2.	After installing the required package run the command following command to start the Nodejs server.
-**node server\app-server**.
+    node server\app-server.
 3.	Test the APIs from API design document using POSTMAN.
 
 ```
