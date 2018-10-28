@@ -1,0 +1,8 @@
+name,global_probability,total_count,kind,field_type,comments
+Agent_ID,1.0,2,field,ObjectId,
+Delivery_Address_Type,1.0,2,field,String,
+Items,1.0,2,field,Array,
+Tracking_ID,1.0,2,field,String,
+Tracking_Status,1.0,2,field,Array,
+User_ID,1.0,2,field,String,
+_id,1.0,2,field,ObjectId,

@@ -1,0 +1,2 @@
+{ "_id" : { "$oid" : "5bd415f63e9d8e2be0f4f207" }, "Category" : "Man clothing", "Sub_Category" : "Jeans", "Name" : "Mufti jeans", "Quantity" : "100", "Price" : "2874" }
+{ "_id" : { "$oid" : "5bd416083e9d8e2be0f4f208" }, "Category" : "Man clothing", "Sub_Category" : "Shirt", "Name" : "Mufti shirt", "Quantity" : "70", "Price" : "9874" }

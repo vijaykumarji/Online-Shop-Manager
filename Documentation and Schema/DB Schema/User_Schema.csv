@@ -1,0 +1,6 @@
+name,global_probability,total_count,kind,field_type,comments
+Address,1.0,1,field,Array,
+Email,1.0,1,field,String,
+Name,1.0,1,field,String,
+Password,1.0,1,field,String,
+_id,1.0,1,field,ObjectId,

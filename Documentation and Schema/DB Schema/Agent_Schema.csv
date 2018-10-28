@@ -1,0 +1,8 @@
+name,global_probability,total_count,kind,field_type,comments
+Address,1.0,1,field,Array,
+Availability,1.0,1,field,String,
+Current_Orders,1.0,1,field,Int32,
+Email,1.0,1,field,String,
+Mobile_No,1.0,1,field,String,
+Name,1.0,1,field,String,
+_id,1.0,1,field,ObjectId,

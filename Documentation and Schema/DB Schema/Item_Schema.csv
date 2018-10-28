@@ -1,0 +1,7 @@
+name,global_probability,total_count,kind,field_type,comments
+Category,1.0,2,field,String,
+Name,1.0,2,field,String,
+Price,1.0,2,field,String,
+Quantity,1.0,2,field,String,
+Sub_Category,1.0,2,field,String,
+_id,1.0,2,field,ObjectId,
