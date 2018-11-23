@@ -22,6 +22,35 @@ class DBClientProxy {
   /**
    * Function to ADD a particular user
    */
+  GetUser(userObject) {
+
+    return new Promise((resolve, reject) => {
+      if (db !== null) {
+
+        let result;
+
+        if (!userObject.Email) {
+          return reject('Email ID is needed');
+        }
+
+        db.get().collection(DBCollection.USER).find({ 'Email': userObject.Email }).toArray()
+          .then((findResult) => {
+
+            resolve(findResult);
+          })
+          .catch((error) => {
+
+            return reject(error);
+          });
+      } else {
+        reject('Connection Error');
+      }
+    });
+  }
+
+  /**
+   * Function to ADD a particular user
+   */
   AddUser(userObject) {
 
     return new Promise((resolve, reject) => {
