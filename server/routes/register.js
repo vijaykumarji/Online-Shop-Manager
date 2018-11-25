@@ -15,7 +15,7 @@ router.get('/', function (req, res, next) {
 
 });
 
-router.post('/', function (req, res, next) {
+router.post('/authenticate', function (req, res, next) {
 
   new RouteMediator(req, res)
     .processPostAction(RegisterView);

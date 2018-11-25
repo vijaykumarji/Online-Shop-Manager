@@ -8,31 +8,31 @@ const ItemView = require('../views/item');
 const ItemsView = require('../views/items');
 
 /* GET. */
-router.get('/list/:category', function (req, res, next) {
+router.get('/list/:category', passport.authenticate('jwt', {session: false}), function (req, res, next) {
 
     new RouteMediator(req, res).processGetAction(ItemsView);
 });
 
 /* GET. */
-router.get('/:itemID', function (req, res, next) {
+router.get('/:itemID', passport.authenticate('jwt', {session: false}), function (req, res, next) {
 
     new RouteMediator(req, res).processGetAction(ItemView);
 });
 
 /* POST. */
-router.post('/:itemID', function (req, res, next) {
+router.post('/:itemID', passport.authenticate('jwt', {session: false}), function (req, res, next) {
 
     new RouteMediator(req, res).processPostAction(ItemView);
 });
 
 /* PUT. */
-router.put('/', function (req, res, next) {
+router.put('/', passport.authenticate('jwt', {session: false}), function (req, res, next) {
 
     new RouteMediator(req, res).processAddAction(ItemView);
 });
 
 /* DELETE. */
-router.delete('/:itemID', function (req, res, next) {
+router.delete('/:itemID', passport.authenticate('jwt', {session: false}), function (req, res, next) {
 
   new RouteMediator(req, res).processDeleteAction(ItemView);
 });

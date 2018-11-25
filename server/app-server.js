@@ -9,6 +9,7 @@ const app = require('./app');
 const db = require('./app-database');
 const debug = require('debug')('node-auth:server');
 const http = require('http');
+const databaseConfig = require('./config/database')
 
 /**
  * Get port from environment and store in Express.
@@ -24,7 +25,7 @@ app.set('port', port);
 const server = http.createServer(app);
 
 // Connect to Mongo on start
-db.connect('mongodb://localhost:27017/onlineshop', function (err) {
+db.connect(databaseConfig.database, function (err) {
 
   if (err) {
 

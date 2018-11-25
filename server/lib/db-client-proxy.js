@@ -1,6 +1,7 @@
 'use strict';
 const mongo = require('mongodb');
 const uuidv4 = require('uuid/v4');
+const bcrypt = require('bcryptjs');
 
 const db = require('../app-database');
 const RegisterViewData = require('../view-objects/register-view-data')
@@ -18,6 +19,55 @@ class DBClientProxy {
   constructor() {
 
   };
+
+    /**
+   * Function to ADD a particular user
+   */
+  AuthenticateUser(userObject) {
+
+    return new Promise((resolve, reject) => {
+      if (db !== null) {
+
+        let result;
+        let hashPassword;
+
+        if (!userObject.Email) {
+          return reject('Email ID is needed');
+        }
+
+        db.get().collection(DBCollection.USER).findOne({ 'Email': userObject.Email })
+          .then((findResult) => {
+
+            if(findResult)  {
+
+            hashPassword = findResult.Password;
+
+            return bcrypt.compare(userObject.Password, findResult.Password); 
+                   
+          } else {
+            
+              return Promise.resolve(false);
+            }
+          })
+          .then((compareResult) => {
+
+            if(compareResult) {
+              resolve(hashPassword);
+            } else {
+
+              resolve('');
+            }
+            
+          })
+          .catch((error) => {
+
+            return reject(error);
+          });
+      } else {
+        reject('Connection Error');
+      }
+    });
+  }
 
   /**
    * Function to ADD a particular user
@@ -70,6 +120,16 @@ class DBClientProxy {
             if (findResult.length > 0) {
               return Promise.reject('Email already exist');
             }
+
+            return bcrypt.genSalt(10);
+          })
+          .then((salt) => {
+
+            return bcrypt.hash(userObject.Password, salt);
+          })
+          .then((hash) => {
+
+            userObject.Password = hash;
 
             return db.get().collection(DBCollection.USER).insertOne(userObject.getAsJSON().RegisterViewData);
           })

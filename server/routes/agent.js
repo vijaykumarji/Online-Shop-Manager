@@ -8,19 +8,19 @@ const AgentView = require('../views/agent');
 const AgentsView = require('../views/agents');
 
 /* GET. */
-router.get('/list', function (req, res, next) {
+router.get('/list', passport.authenticate('jwt', {session: false}), function (req, res, next) {
 
   new RouteMediator(req, res).processGetAction(AgentsView);
 });
 
 /* POST. */
-router.post('/:agentID', function (req, res, next) {
+router.post('/:agentID', passport.authenticate('jwt', {session: false}), function (req, res, next) {
 
   new RouteMediator(req, res).processPostAction(AgentView);
 });
 
 /* PUT. */
-router.put('/', function (req, res, next) {
+router.put('/', passport.authenticate('jwt', {session: false}), function (req, res, next) {
 
   new RouteMediator(req, res).processAddAction(AgentView);
 });

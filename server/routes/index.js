@@ -7,14 +7,14 @@ const RouteMediator = require('../lib/route-mediator');
 const IndexView = require('../views/index');
 
 /* GET. */
-router.get('/', function (req, res, next) {
+router.get('/', passport.authenticate('jwt', {session: false}), function (req, res, next) {
 
   new RouteMediator(req, res)
     .processGetAction(IndexView);
 });
 
 /* POST. */
-router.post('/', function (req, res, next) {
+router.post('/', passport.authenticate('jwt', {session: false}), function (req, res, next) {
 
   new RouteMediator(req, res)
     .processPostAction(IndexView);
